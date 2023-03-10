@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import ProfileCard from "./components/ProfileCard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const profileCardData = [
+    { id: 1, title: 'Ahmed', description: 'This is a description' },
+    { id: 2, title: "Mohamed", description: "Thr" },
+    { id: 3, title: "Ali", description: "This is not description" },
+  ]
+
+  return (<div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center', alignItems: 'center' }}>
+    {
+      profileCardData.map(profile => <ProfileCard key={profile.id} title={profile.title} description={profile.description} />)
+    }
+  </div>)
 }
 
 export default App;
